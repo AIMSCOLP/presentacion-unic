@@ -1,0 +1,223 @@
+/* Estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #f0f2f5;
+    color: #1a1a1a;
+}
+
+.presentation {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Estilos de las diapositivas */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Portada */
+.slide h1 {
+    font-size: 3rem;
+    color: #1a365d;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.slide h2 {
+    font-size: 2rem;
+    color: #2c5282;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* Grid del menú */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.menu-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Proceso grid */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    width: 90%;
+    margin: 2rem auto;
+}
+
+.process-step {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.process-step h3 {
+    color: #2c5282;
+    margin-bottom: 1rem;
+}
+
+.process-step ul {
+    list-style-type: none;
+}
+
+.process-step li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.process-step li:before {
+    content: "•";
+    color: #2c5282;
+    position: absolute;
+    left: 0;
+}
+
+/* Timeline */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 90%;
+    margin: 2rem auto;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #2c5282;
+    z-index: 1;
+}
+
+.timeline-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    margin: 0 1rem;
+}
+
+.timeline-item h3 {
+    color: #2c5282;
+    margin-bottom: 1rem;
+}
+
+/* Controles */
+.controls {
+    position: fixed;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 100;
+}
+
+.controls button {
+    background: #2c5282;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.controls button:hover {
+    background: #1a365d;
+}
+
+.controls button:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+}
+
+#dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #cbd5e0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dot.active {
+    background: #2c5282;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-grid,
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline {
+        flex-direction: column;
+    }
+
+    .timeline:before {
+        display: none;
+    }
+
+    .timeline-item {
+        margin: 1rem 0;
+    }
+}
